@@ -1,0 +1,99 @@
+<style>
+table {
+  border-collapse: separate;
+  border-spacing: 0;
+}
+th,
+td {
+  padding: 10px 15px;
+}
+thead {
+  background: #395870;
+  color: #fff;
+}
+th {
+  font-weight: bold;
+}
+tbody tr:nth-child(even) {
+  background: #f0f0f2;
+}
+td {
+  border-bottom: 1px solid #cecfd5;
+  border-right: 1px solid #cecfd5;
+}
+td:first-child {
+  border-left: 1px solid #cecfd5;
+}</style>
+
+
+<div><button type="button" class="btn btn-default" ng-click="cxrnorpcfunc();ShowHiderpc()" value="Show Hide DIV" >Add Payee</button>
+
+<br><br>
+
+
+</div> 
+
+
+
+<div ng-hide = "IsHiddenrpc">
+<form  style = "font-size: 15px;" class="form-inline ng-pristine ng-valid" id="trigger-form" ng-submit="createAccprof()" >
+<div class="form-group" >
+Acc Number:  <input style  = "margin-left:1.5cm;color: #000066;" type="text" class="form-control" id="router" ng-model="Accprof.account"  required="required" />
+</div><br><br>
+<div class="form-group">
+Account Name:<input   style  = "margin-left:1.95cm;color: #000066;" type="text" class="form-control" id="router" ng-model="Accprof.accountname" required="required" />
+</div><br><br>
+<div class="form-group">
+Account Bank:<input style  = "margin-left:1.1cm;color: #000066;" type="text" class="form-control" id="cli" ng-model="Accprof.accountbank" required="required" />
+</div><br><br>
+
+<button style = "color: #000066;" class="btn btn-white" type="submit" id="btntriiger" >Submit</button>
+</form>
+</div>
+<br>
+
+<div>
+<form  style = "font-size: 15px;" class="form-inline ng-pristine ng-valid" id="trigger-form" ng-submit="deleteAccprof()" >
+
+<div class="form-group">
+Account Name:<input   style  = "margin-left:1cm;color: #000066;" type="text" class="form-control" id="router" ng-model="DeleteAccprof.accountname1" required="required" />
+<button style  = "margin-left:1.8cm color: #000066;" class="btn btn-white" type="submit" id="btntriiger" >Delete Payee</button>
+</div><br><br>
+
+</form>
+</div>
+
+<div><button type="button" class="btn btn-default" ng-click="getAccountfunc();ShowHiderpc1()" value="Show Hide DIV" >Payee Details</button>
+
+<br><br>
+
+
+</div> 
+
+
+
+<div ng-hide = "IsHiddenrpc1">
+<table >
+  <thead>
+    <tr>
+      <th scope="col">SNo</th>
+      <th scope="col">Account Number</th>
+      <th scope="col">Account Name</th>
+      <th scope="col">Account Bank</th>
+    </tr>
+  </thead>
+  <tbody ng-repeat="file in acc_data"> 
+
+    <tr >
+      <td ng-bind="{{$index+1}}"></td>
+      <td ng-bind="file.account_no"></td>
+      <td ng-bind="file.account_name"></td>
+      <td ng-bind="file.account_bank"></td>
+    </tr>
+  </tbody>
+  <tfoot>
+  </tfoot>
+</table>
+</div>
+<br>
+
